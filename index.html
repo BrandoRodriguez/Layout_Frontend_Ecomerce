@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* @property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
+
+
+
+.card:hover {
+            -webkit-transform: translateY(-5px);
+            -ms-transform: translateY(-5px);
+            transform: translateY(-5px);
+            border-image: linear-gradient(
+    var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2)2;
+    animation: spin 2.5s linear infinite;
+            
+        }
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+} */
+
+
+
+
+
+        /* Body */
+        body {
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+            background-color: #f9f9f9;
+            margin-top: 30px;
+        }
+
+        /* Container */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 240px);
+            grid-gap: 10px;
+            place-content: center;
+        }
+
+        /* CSS Grid */
+
+        .cards-container {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            margin: 15px;
+        }
+
+
+        @media (min-width: 768px) {
+            .cards-container {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                margin: 30px;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .cards-container {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                margin: 30px
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .cards-container {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+                margin: 30px
+            }
+
+        }
+
+        @media (min-width: 1400px) {
+            .cards-container {
+                grid-template-columns: repeat(6, minmax(0, 1fr));
+                margin: 30px
+            }
+        }
+
+        @media (min-width: 1700px) {
+            .cards-container {
+                grid-template-columns: repeat(7, minmax(0, 1fr));
+                margin: 30px
+            }
+        }
+
+        /* Card */
+        .card {
+            position: relative;
+            background-color: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            border: 2px solid transparent;
+            -webkit-transition: .25s ease-in-out;
+            -o-transition: .25s ease-in-out;
+            transition: .25s ease-in-out;
+        }
+
+        .card a:active,
+        .card a:focus {
+            border: 0;
+            outline: none
+        }
+
+        .card:hover {
+            border-color: var(--colorPrimary, #212121);
+            -webkit-transform: translateY(-5px);
+            -ms-transform: translateY(-5px);
+            transform: translateY(-5px);
+
+        }
+
+        /* One Block => Contiene img y bage*/
+        .card-thumb {
+            display: flex;
+            position: relative;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            height: 210px;
+
+        }
+
+        /* a */
+        .card-thumb a {
+            position: relative;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+        }
+
+
+        /* img  */
+        .card-thumb img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            border-radius: 0 !important;
+            margin-bottom: 0 !important
+        }
+
+
+        /* Description */
+        .card-description {
+            padding: 15px 30px 30px;
+            -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+            cursor: pointer;
+        }
+
+        /* Price  */
+        .card-price {
+            display: flex;
+            font-weight: 600;
+            margin-bottom: 5px
+        }
+
+        /* title */
+        .card-title {
+            display: block;
+            font-size: 13px;
+            -webkit-transition: .15s ease-in-out;
+            -o-transition: .15s ease-in-out;
+            transition: .15s ease-in-out;
+            text-decoration: none;
+
+        }
+
+        .card-title,
+        .card-title:visited {
+            color: var(--colorTextLight, #5a5a5a)
+        }
+
+        .card-title:hover {
+            color: var(--colorPrimary, #212121)
+        }
+
+
+        /* Button */
+        .card-cart-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1;
+            cursor: pointer;
+            -webkit-transition: .15s ease-in-out;
+            -o-transition: .15s ease-in-out;
+            transition: .15s ease-in-out;
+
+        }
+
+        a:visited {
+            color: var(--colorTextMain, #212121);
+
+
+        }
+
+        a:hover {
+            color: var(--colorPrimaryHover, #3a3a3a);
+        }
+
+        /* Botton 2 */
+        .cartsy-counter {
+            bottom: 0;
+            margin-bottom: 0 !important;
+            position: absolute;
+            right: 0;
+            transition: .15s ease-in-out;
+            z-index: 2;
+        }
+
+        .cartsy-counter {
+            border-radius: 6px;
+            display: inline-flex;
+        }
+
+        .card .cartsy-counter-update {
+            border-radius: 6px 0 2px 0;
+        }
+
+        .cartsy-counter-update {
+            align-items: center;
+            background-color: var(--colorPrimary, #212121);
+            border-radius: 6px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            flex-shrink: 0;
+            height: 35px;
+            justify-content: center;
+            transition: .15s ease-in-out;
+            width: 35px;
+        }
+
+        .cartsy-counter-update:hover {
+            background-color: var(--colorPrimaryHover, #3a3a3a);
+        }
+
+        /* Card badge */
+        .product-badge {
+            background-color: var(--colorSecondary, #212121);
+            border-radius: 6px;
+            color: #fff;
+            font-size: 12px;
+            left: 20px;
+            line-height: 1;
+            padding: 5px 10px;
+            pointer-events: none;
+            position: absolute;
+            top: 20px;
+            z-index: 1;
+        }
+
+        .product-badge1 {
+            background-color: var(--colorSecondary, #212121);
+            border-radius: 6px;
+            bottom: 10px;
+            color: #fff;
+            font-size: 12px;
+            left: 10px;
+            line-height: 1;
+            padding: 5px 10px;
+            pointer-events: none;
+            position: absolute;
+            z-index: 1;
+        }
+
+        /* Card category */
+        .card-category {
+            color: var(--colorTextLight, #5a5a5a);
+            display: block;
+            font-size: 12px;
+            margin-bottom: 5px;
+            transition: .15s ease-in-out;
+            text-decoration: none;
+        }
+
+
+
+        /* CSS Grid de Elementos*/
+
+        @media (max-width: 1700px) {
+
+            .card-cart-button {
+                right: 10px;
+                top: 10px;
+                width: 20px;
+            }
+
+            .card-description {
+                padding: 15px 20px 20px;
+            }
+
+            .product-badge {
+                left: 10px;
+                top: 10px;
+            }
+        }
+
+        @media (max-width: 1280px) {
+            .card-thumb {
+                height: 190px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .card-cart-button {
+                right: 5px;
+                top: 5px;
+            }
+
+            .card-thumb {
+                height: 140px
+            }
+
+            .card-description {
+                padding: 10px 15px 15px;
+            }
+
+            .product-badge1 {
+                font-size: 10px;
+                left: 5px;
+                padding: 4px 8px;
+            }
+
+            .product-badge {
+                font-size: 10px;
+                left: 5px;
+                padding: 4px 8px;
+            }
+
+            /* Bottun 1 */
+            .cartsy-counter-update {
+                height: 30px;
+                width: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="main-container">
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-thumb">
+                    <a href="#">
+                        <span class="product-badge">Sale</span>
+                        <img src="./img/1.jpg" alt="referencia">
+
+                    </a>
+                    <!--  -->
+                    <div class="card-cart-button">
+                        <a href="./My_Order.html">
+                            <svg fill="currentColor" data-name="add (3)" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24">
+                                <path data-name="Path 8"
+                                    d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm0,22.5A10.5,10.5,0,1,1,22.5,12,10.512,10.512,0,0,1,12,22.5Z">
+                                </path>
+                                <path data-name="Path 9"
+                                    d="M144.532,137.783h-1.5v5.25h-5.25v1.5h5.25v5.25h1.5v-5.25h5.25v-1.5h-5.25Z"
+                                    transform="translate(-131.782 -131.783)"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="card-description">
+                    <div class="card-price">
+                        <span class="price">
+                            <span>$ 99.28</span>
+                        </span>
+                        <span class="unit">
+                        </span>
+                    </div>
+                    <a href="#" class="card-category">Rice Cooker</a>
+                    <a href="#" class="card-title">1 Layer Chocolate Fudge Cake 1.3 lb</a>
+                </div>
+            </div>
+
+            <div class="card">
+
+                <div class="card-description">
+                    <div class="card-price">
+                        <span class="price">
+                            <span>$ 1,499.00</span>
+                        </span>
+                        <span class="unit">
+                        </span>
+                    </div>
+                    <a href="#" class="card-category">Rice Cooker</a>
+                    <a href="#" class="card-title">Aroma 1.5L Automatic Rice Cooker Black</a>
+                </div>
+
+                <div class="card-thumb">
+                    <a href="#">
+                        <img src="./img/2.png" alt="referencia">
+
+                        <span class="product-badge1">Sale</span>
+                    </a>
+
+                    <div class="cartsy-counter">
+                        <a href="./Card_2.html">
+                            <span class="cartsy-counter-update increment">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                                    <path data-name="Path 9"
+                                        d="M143.407,137.783h-1.25v4.375h-4.375v1.25h4.375v4.375h1.25v-4.375h4.375v-1.25h-4.375Z"
+                                        transform="translate(-137.782 -137.783)" fill="currentColor"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="card">
+                <div class="card-thumb">
+                    <a href="#">
+                        <span class="product-badge">Sale</span>
+                        <img src="./img/3.png" alt="referencia">
+                    </a>
+                    <!--  -->
+                    <div class="card-cart-button">
+                        <a href="#">
+                            <svg fill="currentColor" data-name="add (3)" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24">
+                                <path data-name="Path 8"
+                                    d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm0,22.5A10.5,10.5,0,1,1,22.5,12,10.512,10.512,0,0,1,12,22.5Z">
+                                </path>
+                                <path data-name="Path 9"
+                                    d="M144.532,137.783h-1.5v5.25h-5.25v1.5h5.25v5.25h1.5v-5.25h5.25v-1.5h-5.25Z"
+                                    transform="translate(-131.782 -131.783)"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="card-description">
+                    <div class="card-price">
+                        <span class="price">
+                            <span>$ 100.28</span>
+                        </span>
+                        <span class="unit">
+                        </span>
+                    </div>
+                    <a href="#" class="card-category">Rice Cooker</a>
+                    <a href="#" class="card-title">Aroma 1.5L Automatic Rice Cooker Black</a>
+                </div>
+            </div>
+
+            <div class="card">
+
+                <div class="card-description">
+                    <div class="card-price">
+                        <span class="price">
+                            <span>$ 1,499.00</span>
+                        </span>
+                        <span class="unit">
+                        </span>
+                    </div>
+                    <a href="#" class="card-category">Rice Cooker</a>
+                    <a href="#" class="card-title">Aroma 1.5L Automatic Rice Cooker Black</a>
+                </div>
+
+                <div class="card-thumb">
+                    <a href="#">
+                        <img src="./img/4.png" alt="referencia">
+
+                        <span class="product-badge1">Sale</span>
+                    </a>
+
+                    <div class="cartsy-counter">
+                        <a href="#">
+                            <span class="cartsy-counter-update increment">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                                    <path data-name="Path 9"
+                                        d="M143.407,137.783h-1.25v4.375h-4.375v1.25h4.375v4.375h1.25v-4.375h4.375v-1.25h-4.375Z"
+                                        transform="translate(-137.782 -137.783)" fill="currentColor"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="card">
+                <div class="card-thumb">
+                    <a href="#">
+                        <span class="product-badge">Sale</span>
+                        <img src="./img/5.png" alt="referencia">
+
+                    </a>
+                    <!--  -->
+                    <div class="card-cart-button">
+                        <a href="#">
+                            <svg fill="currentColor" data-name="add (3)" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24">
+                                <path data-name="Path 8"
+                                    d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm0,22.5A10.5,10.5,0,1,1,22.5,12,10.512,10.512,0,0,1,12,22.5Z">
+                                </path>
+                                <path data-name="Path 9"
+                                    d="M144.532,137.783h-1.5v5.25h-5.25v1.5h5.25v5.25h1.5v-5.25h5.25v-1.5h-5.25Z"
+                                    transform="translate(-131.782 -131.783)"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="card-description">
+                    <div class="card-price">
+                        <span class="price">
+                            <span>$ 99.28</span>
+                        </span>
+                        <span class="unit">
+                        </span>
+                    </div>
+                    <a href="#" class="card-category">Rice Cooker</a>
+                    <a href="#" class="card-title">1 Layer Chocolate Fudge Cake 1.3 lb</a>
+                </div>
+            </div>
+
+            <div class="card">
+
+                <div class="card-description">
+                    <div class="card-price">
+                        <span class="price">
+                            <span>$ 1,499.00</span>
+                        </span>
+                        <span class="unit">
+                        </span>
+                    </div>
+                    <a href="#" class="card-category">Rice Cooker</a>
+                    <a href="#" class="card-title">Aroma 1.5L Automatic Rice Cooker Black</a>
+                </div>
+
+                <div class="card-thumb">
+                    <a href="#">
+                        <img src="./img/6.png" alt="referencia">
+
+                        <span class="product-badge1">Sale</span>
+                    </a>
+
+                    <div class="cartsy-counter">
+                        <a href="#">
+                            <span class="cartsy-counter-update increment">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                                    <path data-name="Path 9"
+                                        d="M143.407,137.783h-1.25v4.375h-4.375v1.25h4.375v4.375h1.25v-4.375h4.375v-1.25h-4.375Z"
+                                        transform="translate(-137.782 -137.783)" fill="currentColor"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="card">
+                <div class="card-thumb">
+                    <a href="#">
+                        <span class="product-badge">Sale</span>
+                        <img src="./img/7.png" alt="referencia">
+                    </a>
+                    <!--  -->
+                    <div class="card-cart-button">
+                        <a href="#">
+                            <svg fill="currentColor" data-name="add (3)" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24">
+                                <path data-name="Path 8"
+                                    d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm0,22.5A10.5,10.5,0,1,1,22.5,12,10.512,10.512,0,0,1,12,22.5Z">
+                                </path>
+                                <path data-name="Path 9"
+                                    d="M144.532,137.783h-1.5v5.25h-5.25v1.5h5.25v5.25h1.5v-5.25h5.25v-1.5h-5.25Z"
+                                    transform="translate(-131.782 -131.783)"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="card-description">
+                    <div class="card-price">
+                        <span class="price">
+                            <span>$ 100.28</span>
+                        </span>
+                        <span class="unit">
+                        </span>
+                    </div>
+                    <a href="#" class="card-category">Rice Cooker</a>
+                    <a href="#" class="card-title">Aroma 1.5L Automatic Rice Cooker Black</a>
+                </div>
+            </div>
+
+            <div class="card">
+
+                <div class="card-description">
+                    <div class="card-price">
+                        <span class="price">
+                            <span>$ 1,499.00</span>
+                        </span>
+                        <span class="unit">
+                        </span>
+                    </div>
+                    <a href="#" class="card-category">Rice Cooker</a>
+                    <a href="#" class="card-title">Aroma 1.5L Automatic Rice Cooker Black</a>
+                </div>
+
+                <div class="card-thumb">
+                    <a href="#">
+                        <img src="./img/8.png" alt="referencia">
+
+                        <span class="product-badge1">Sale</span>
+                    </a>
+
+                    <div class="cartsy-counter">
+                        <a href="#">
+                            <span class="cartsy-counter-update increment">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                                    <path data-name="Path 9"
+                                        d="M143.407,137.783h-1.25v4.375h-4.375v1.25h4.375v4.375h1.25v-4.375h4.375v-1.25h-4.375Z"
+                                        transform="translate(-137.782 -137.783)" fill="currentColor"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="card">
+                <div class="card-thumb">
+                    <a href="#">
+                        <span class="product-badge">Sale</span>
+                        <img src="./img/6.png" alt="referencia">
+
+                    </a>
+                    <!--  -->
+                    <div class="card-cart-button">
+                        <a href="#">
+                            <svg fill="currentColor" data-name="add (3)" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24">
+                                <path data-name="Path 8"
+                                    d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm0,22.5A10.5,10.5,0,1,1,22.5,12,10.512,10.512,0,0,1,12,22.5Z">
+                                </path>
+                                <path data-name="Path 9"
+                                    d="M144.532,137.783h-1.5v5.25h-5.25v1.5h5.25v5.25h1.5v-5.25h5.25v-1.5h-5.25Z"
+                                    transform="translate(-131.782 -131.783)"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="card-description">
+                    <div class="card-price">
+                        <span class="price">
+                            <span>$ 99.28</span>
+                        </span>
+                        <span class="unit">
+                        </span>
+                    </div>
+                    <a href="#" class="card-category">Rice Cooker</a>
+                    <a href="#" class="card-title">1 Layer Chocolate Fudge Cake 1.3 lb</a>
+                </div>
+            </div>
+
+            <div class="card">
+
+                <div class="card-description">
+                    <div class="card-price">
+                        <span class="price">
+                            <span>$ 1,499.00</span>
+                        </span>
+                        <span class="unit">
+                        </span>
+                    </div>
+                    <a href="#" class="card-category">Rice Cooker</a>
+                    <a href="#" class="card-title">Aroma 1.5L Automatic Rice Cooker Black</a>
+                </div>
+
+                <div class="card-thumb">
+                    <a href="#">
+                        <img src="./img/4.png" alt="referencia">
+
+                        <span class="product-badge1">Sale</span>
+                    </a>
+
+                    <div class="cartsy-counter">
+                        <a href="#">
+                            <span class="cartsy-counter-update increment">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                                    <path data-name="Path 9"
+                                        d="M143.407,137.783h-1.25v4.375h-4.375v1.25h4.375v4.375h1.25v-4.375h4.375v-1.25h-4.375Z"
+                                        transform="translate(-137.782 -137.783)" fill="currentColor"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="card">
+                <div class="card-thumb">
+                    <a href="#">
+                        <span class="product-badge">Sale</span>
+                        <img src="./img/3.png" alt="referencia">
+                    </a>
+                    <!--  -->
+                    <div class="card-cart-button">
+                        <a href="#">
+                            <svg fill="currentColor" data-name="add (3)" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24">
+                                <path data-name="Path 8"
+                                    d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm0,22.5A10.5,10.5,0,1,1,22.5,12,10.512,10.512,0,0,1,12,22.5Z">
+                                </path>
+                                <path data-name="Path 9"
+                                    d="M144.532,137.783h-1.5v5.25h-5.25v1.5h5.25v5.25h1.5v-5.25h5.25v-1.5h-5.25Z"
+                                    transform="translate(-131.782 -131.783)"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="card-description">
+                    <div class="card-price">
+                        <span class="price">
+                            <span>$ 100.28</span>
+                        </span>
+                        <span class="unit">
+                        </span>
+                    </div>
+                    <a href="#" class="card-category">Rice Cooker</a>
+                    <a href="#" class="card-title">Aroma 1.5L Automatic Rice Cooker Black</a>
+                </div>
+            </div>
+
+            <div class="card">
+
+                <div class="card-description">
+                    <div class="card-price">
+                        <span class="price">
+                            <span>$ 1,499.00</span>
+                        </span>
+                        <span class="unit">
+                        </span>
+                    </div>
+                    <a href="#" class="card-category">Rice Cooker</a>
+                    <a href="#" class="card-title">Aroma 1.5L Automatic Rice Cooker Black</a>
+                </div>
+
+                <div class="card-thumb">
+                    <a href="#">
+                        <img src="./img/6.png" alt="referencia">
+
+                        <span class="product-badge1">Sale</span>
+                    </a>
+
+                    <div class="cartsy-counter">
+                        <a href="#">
+                            <span class="cartsy-counter-update increment">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                                    <path data-name="Path 9"
+                                        d="M143.407,137.783h-1.25v4.375h-4.375v1.25h4.375v4.375h1.25v-4.375h4.375v-1.25h-4.375Z"
+                                        transform="translate(-137.782 -137.783)" fill="currentColor"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+
+
+</body>
+
+</html>

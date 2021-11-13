@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .product-detail {
+            width: 450px;
+            box-sizing: border-box;
+            position: absolute;
+            right: 0;
+        }
+
+
+        .title-container {
+            display: flex;
+            margin-left: 30px;
+        }
+
+        .title-container img {
+            transform: rotate(180deg);
+            margin-right: 14px;
+            cursor: pointer;
+        }
+
+        .title {
+            font-weight: bold;
+        }
+
+        @media (max-width: 640px) {
+            .product-detail {
+                width: 100%;
+                margin-top: 15px;
+
+                height: calc(100% - 75px);
+                margin-bottom: 20px;
+
+
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+        /* Botton */
+        .cartsy-counter {
+            border-radius: 6px;
+            display: inline-flex;
+        }
+
+        .cartsy-counter-update {
+            border-radius: 6px 0 2px 0;
+        }
+
+        .cartsy-counter-update {
+            height: 35px;
+            width: 35px;
+        }
+
+        .cartsy-counter-update {
+            color: #fff;
+        }
+
+        .cartsy-counter-update {
+            align-items: center;
+            background-color: var(--colorPrimary, #212121);
+            border-radius: 6px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            flex-shrink: 0;
+            height: 30px;
+            justify-content: center;
+            transition: .15s ease-in-out;
+            width: 30px;
+        }
+
+
+        .cartsy-counter {
+            margin-bottom: 0 !important;
+            transition: .15s ease-in-out;
+            z-index: 2;
+        }
+
+        .cartsy-counter-update.decrement {
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .cartsy-counter-update.increment {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+        }
+
+        .cartsy-counter-update {
+            height: 35px;
+            width: 35px;
+        }
+
+        .cartsy-counter-value {
+            background-color: var(--colorPrimary, #212121);
+            color: #fff;
+        }
+
+        .cartsy-counter-value {
+            align-items: center;
+            color: var(--colorTextLight, #fff);
+            display: flex;
+            flex-shrink: 0;
+            font-size: 14px;
+            font-weight: 600;
+            justify-content: center;
+            line-height: 1;
+            width: 45px;
+        }
+
+
+
+        /*  */
+
+
+
+
+
+        .cartsy-mini-cart-item:last-child {
+            border-bottom: 0;
+        }
+
+        .cartsy-mini-cart-item {
+            align-items: center;
+            border-bottom: 1px solid #f3f3f3;
+            display: flex;
+            padding: 30px;
+            position: relative;
+        }
+
+        .cartsy-mini-cart-item-thumbnail {
+            align-self: center;
+            border-radius: 6px;
+            flex-shrink: 0;
+            overflow: hidden;
+            position: relative;
+            width: 105px;
+        }
+
+        .cartsy-mini-cart-item-thumbnail img {
+            display: block;
+            height: auto;
+            margin: 0;
+            width: 100%;
+        }
+
+        .cartsy-mini-cart-item-info {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+            padding: 0 15px;
+        }
+
+        .cartsy-mini-cart-item-title {
+            color: var(--colorTextLight, #5a5a5a);
+            display: block;
+            font-size: 13px;
+            margin-bottom: 5px;
+            transition: .15s ease-in-out;
+            text-decoration: none;
+        }
+
+        .cartsy-mini-cart-item-price {
+            color: var(--colorTextLighter, #999);
+            display: block;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .cartsy-mini-cart-item-count {
+            align-items: flex-end;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .cartsy-mini-cart-item-total {
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+
+
+
+
+
+
+
+
+
+        .cartsy-mini-cart-total {
+            padding: 0 30px;
+        }
+
+
+        .cartsy-mini-cart-total a {
+            align-items: center;
+            background-color: #212121;
+            border-radius: 6px;
+            color: #fff;
+            display: flex;
+            line-height: 1.625;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .cartsy-mini-cart-total a .label {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .cartsy-mini-cart-total a>.amount {
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .cartsy-mini-cart-total a>.amount:before {
+            background-color: #fff;
+            content: "";
+            display: block;
+            height: 100%;
+            left: 20px;
+            position: absolute;
+            top: 0;
+            width: 1px;
+        }
+
+        .cartsy-mini-cart-total a>.amount>strong {
+            display: none;
+        }
+
+
+        @media (max-width: 575px) {
+
+            /* Bottun 1 */
+            .cartsy-counter-value {
+                font-size: 13px;
+                width: 35px;
+            }
+
+            .cartsy-counter-update {
+                height: 30px;
+                width: 30px;
+            }
+
+            .cartsy-counter {
+                right: 5px;
+                top: 5px;
+            }
+
+            .cartsy-mini-cart-total a {
+                font-size: 14px;
+                padding: 10px 15px;
+            }
+
+            .cartsy-mini-cart-item {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <aside class="product-detail">
+
+        <div class="title-container">
+            <img  src="./flechita.svg" alt="arrow">
+            <p class="title">Shopping Cart</p>
+        </div>
+
+        <div class="cartsy-mini-cart-item">
+            <div class="cartsy-mini-cart-item-thumbnail">
+                <img width="300" height="300" src="./3.png" alt="">
+            </div>
+
+            <div class="cartsy-mini-cart-item-info">
+                <a class="cartsy-mini-cart-item-title" href="#">
+                    Ezonedeal Portable 3.5-6inch VR Glasses
+                </a>
+                <span class="cartsy-mini-cart-item-price">
+                    Unit Price
+                    <span>
+                        <bdi><span>$</span>40.00</bdi></span>
+                </span>
+
+                <div class="cartsy-mini-cart-item-count">
+
+                    <div class="cartsy-counter">
+                        <span class="cartsy-counter-update decrement ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="1.25" viewBox="0 0 10 1.25">
+                                <path data-name="Path 9" d="M142.157,142.158h-4.375v1.25h10v-1.25h-5.625Z"
+                                    transform="translate(-137.782 -142.158)" fill="#fff"></path>
+                            </svg>
+                        </span>
+
+                        <span class="cartsy-counter-value">
+                            <span class="quantity">1</span>
+                        </span>
+
+                        <span class="cartsy-counter-update increment ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                                <path data-name="Path 9"
+                                    d="M143.407,137.783h-1.25v4.375h-4.375v1.25h4.375v4.375h1.25v-4.375h4.375v-1.25h-4.375Z"
+                                    transform="translate(-137.782 -137.783)" fill="#fff"></path>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="cartsy-mini-cart-item-total">
+                        <span>
+                            <bdi><span>$</span>40.00</bdi>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cartsy-mini-cart-item">
+            <div class="cartsy-mini-cart-item-thumbnail">
+                <img width="300" height="300" src="./4.png" alt="">
+            </div>
+
+            <div class="cartsy-mini-cart-item-info">
+                <a class="cartsy-mini-cart-item-title" href="#">
+                    Ezonedeal Portable 3.5-6inch VR Glasses
+                </a>
+                <span class="cartsy-mini-cart-item-price">
+                    Unit Price
+                    <span>
+                        <bdi><span>$</span>40.00</bdi></span>
+                </span>
+
+                <div class="cartsy-mini-cart-item-count">
+
+                    <div class="cartsy-counter">
+                        <span class="cartsy-counter-update decrement ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="1.25" viewBox="0 0 10 1.25">
+                                <path data-name="Path 9" d="M142.157,142.158h-4.375v1.25h10v-1.25h-5.625Z"
+                                    transform="translate(-137.782 -142.158)" fill="#fff"></path>
+                            </svg>
+                        </span>
+
+                        <span class="cartsy-counter-value">
+                            <span class="quantity">1</span>
+                        </span>
+
+                        <span class="cartsy-counter-update increment ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                                <path data-name="Path 9"
+                                    d="M143.407,137.783h-1.25v4.375h-4.375v1.25h4.375v4.375h1.25v-4.375h4.375v-1.25h-4.375Z"
+                                    transform="translate(-137.782 -137.783)" fill="#fff"></path>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="cartsy-mini-cart-item-total">
+                        <span>
+                            <bdi><span>$</span>40.00</bdi>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cartsy-mini-cart-item">
+            <div class="cartsy-mini-cart-item-thumbnail">
+                <img width="300" height="300" src="./5.png" alt="">
+            </div>
+
+            <div class="cartsy-mini-cart-item-info">
+                <a class="cartsy-mini-cart-item-title" href="#">
+                    Ezonedeal Portable 3.5-6inch VR Glasses
+                </a>
+                <span class="cartsy-mini-cart-item-price">
+                    Unit Price
+                    <span>
+                        <bdi><span>$</span>40.00</bdi></span>
+                </span>
+
+                <div class="cartsy-mini-cart-item-count">
+
+                    <div class="cartsy-counter">
+                        <span class="cartsy-counter-update decrement ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="1.25" viewBox="0 0 10 1.25">
+                                <path data-name="Path 9" d="M142.157,142.158h-4.375v1.25h10v-1.25h-5.625Z"
+                                    transform="translate(-137.782 -142.158)" fill="#fff"></path>
+                            </svg>
+                        </span>
+
+                        <span class="cartsy-counter-value">
+                            <span class="quantity">1</span>
+                        </span>
+
+                        <span class="cartsy-counter-update increment ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                                <path data-name="Path 9"
+                                    d="M143.407,137.783h-1.25v4.375h-4.375v1.25h4.375v4.375h1.25v-4.375h4.375v-1.25h-4.375Z"
+                                    transform="translate(-137.782 -137.783)" fill="#fff"></path>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="cartsy-mini-cart-item-total">
+                        <span>
+                            <bdi><span>$</span>40.00</bdi>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cartsy-mini-cart-total ">
+            <a href="./Card.html">
+                <span class="label">Proceed To Checkout</span>
+                <span class="amount">
+                    <strong>Subtotal:</strong>
+                    <span>
+                        <bdi><span>$</span>1,039.00</bdi></span>
+                </span>
+            </a>
+        </div>
+
+    </aside>
+</body>
+
+</html>
