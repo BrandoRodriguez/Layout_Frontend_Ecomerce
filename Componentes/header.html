@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+   :root {
+            --color-primary: #212121;
+            --hover-Color: #3A3A3A;
+            --background-color: #F9F9F9;
+            --white: #FFFFFF;
+            --black: #000000;
+            --sm: 13px;
+            --md: 16px;
+            --lg: 18px;
+        }
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 15px;
+      border-bottom: 1px solid var(--very-light-pink);
+    }
+    .menu {
+      display: none;
+    }
+    .logo {
+      width: 100px;
+    }
+    .navbar-left ul,
+    .navbar-right ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      height: 60px;
+    }
+    .navbar-left {
+      display: flex;
+    }
+    .navbar-left ul {
+      margin-left: 12px;
+    }
+    .navbar-left ul li a,
+    .navbar-right ul li a {
+      text-decoration: none;
+      color: var(--very-light-pink);
+      border: 1px solid var(--white);
+      padding: 8px;
+      border-radius: 8px;
+    }
+    .navbar-left ul li a:hover,
+    .navbar-right ul li a:hover {
+      border: 1px solid var(--hospital-green);
+      color: var(--hospital-green);
+    }
+    .navbar-email {
+      color: var(--very-light-pink);
+      font-size: var(--sm);
+      margin-right: 12px;
+    }
+    .navbar-shopping-cart {
+      position: relative;
+    }
+    .navbar-shopping-cart div {
+      width: 16px;
+      height: 16px;
+      background-color: var(--color-primary);
+      border-radius: 50%;
+      font-size: var(--sm);
+      position: absolute;
+      top: -9px;
+      right: -7px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--white);
+    }
+    @media (max-width: 640px) {
+      .menu {
+        display: block;
+      }
+      .navbar-left ul {
+        display: none;
+      }
+      .navbar-email {
+        display: none;
+      }
+    }
+
+
+    /* Menu icon */
+
+    
+    .cartsy-menu-toggler {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+         
+        }
+
+        .cartsy-menu-toggler>span:first-child {
+            width: 13px;
+        }
+
+        .cartsy-menu-toggler>span:nth-child(2) {
+            width: 26px;
+        }
+
+        .cartsy-menu-toggler>span:nth-child(3) {
+            width: 18px;
+        }
+
+
+       .cartsy-menu-toggler>span {
+            background-color: #212121;
+            border-radius: 3px;
+            display: block;
+            height: 3px;
+            margin-bottom: 6px;
+            transition: all .25s ease-in-out;
+        }
+
+
+        /* search */
+
+        .cartsy-banner-search-form {
+           display: flex;
+           width: calc(100% - 80px);
+            
+        }
+
+        .cartsy-product-search-form {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .cartsy-product-search-form label {
+            position: relative;
+            display: block;
+        }
+
+        .hidden-text {
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+        }
+
+        .cartsy-product-search-form-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 57px;
+            height: 100%;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .cartsy-product-search-form label input {
+            border: 1px solid #212121;
+            width: 100%;
+            height: 40px;
+            border-width: 2px;
+            border-radius: 6px;
+            transition: border-color .2s #000;
+            color: var(--colorTextMain, #000);
+            font-size: var(--sm);
+            padding: 0 50px;
+            transition: border-color .2s ease;
+        }
+
+        
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="cartsy-menu-toggler">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+<!-- 
+
+    <div class="navbar-left">
+    <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+
+      <ul>
+        <li>
+          <a href="/">All</a>
+        </li>
+        <li>
+          <a href="/">Clothes</a>
+        </li>
+        <li>
+          <a href="/">Electronics</a>
+        </li>
+        <li>
+          <a href="/">Furnitures</a>
+        </li>
+        <li>
+          <a href="/">Toys</a>
+        </li>
+        <li>
+          <a href="/">Others</a>
+        </li>
+      </ul>
+    </div> -->
+
+    <div class="cartsy-banner-search-form">
+
+        <div class="cartsy-product-search-form position-banner">
+            <label>
+                <span class="hidden-text">E.g: Coffee, Muffin, Cookies…</span>
+                <span class="cartsy-product-search-form-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17.048" height="18" viewBox="0 0 17.048 18">
+                        <path data-name="Path 17130"
+                            d="M380.321,383.992l3.225,3.218c.167.167.341.329.5.506a.894.894,0,1,1-1.286,1.238c-1.087-1.067-2.179-2.131-3.227-3.236a.924.924,0,0,0-1.325-.222,7.509,7.509,0,1,1-3.3-14.207,7.532,7.532,0,0,1,6,11.936C380.736,383.462,380.552,383.685,380.321,383.992Zm-5.537.521a5.707,5.707,0,1,0-5.675-5.72A5.675,5.675,0,0,0,374.784,384.513Z"
+                            transform="translate(-367.297 -371.285)" fill="currentColor"></path>
+                    </svg>
+                </span>
+                <input class="cartsy-product-search-form-input" placeholder="E.g: Coffee, Muffin, Cookies..."
+                    type="search" name="cartsy-search-banner-form-input">
+            </label>
+        </div>
+    </div>
+
+    <div class="navbar-right">
+      <ul>
+        <li class="navbar-email">platzi@example.com</li>
+        <li class="navbar-shopping-cart">
+          <img src="../img/sale.svg" alt="shopping cart">
+          <div>2</div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</body>
+</html>
