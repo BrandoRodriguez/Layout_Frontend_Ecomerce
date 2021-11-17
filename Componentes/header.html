@@ -12,7 +12,7 @@
             --background-color: #F9F9F9;
             --white: #FFFFFF;
             --black: #000000;
-            --sm: 13px;
+            --sm: 14px;
             --md: 16px;
             --lg: 18px;
         }
@@ -24,13 +24,13 @@
       display: flex;
       justify-content: space-between;
       padding: 0 30px;
-      border-bottom: 1px solid var(--very-light-pink);
+      border-bottom: 1px solid #C7C7C7;
     }
     .menu {
       display: none;
     }
     .logo {
-      width: 100px;
+      width: 30px;
     }
     .navbar-left ul,
     .navbar-right ul {
@@ -44,26 +44,12 @@
     .navbar-left {
       display: flex;
     }
-    .navbar-left ul {
-      margin-left: 12px;
-    }
-    .navbar-left ul li a,
-    .navbar-right ul li a {
-      text-decoration: none;
-      color: var(--very-light-pink);
-      border: 1px solid var(--white);
-      padding: 8px;
-      border-radius: 6px;
-    }
-    .navbar-left ul li a:hover,
-    .navbar-right ul li a:hover {
-      border: 1px solid var(--hover-Color);
-      color: var(--hospital-green);
-    }
+   
+  
     .navbar-email {
-      color: var(--very-light-pink);
+      color: #C7C7C7;
       font-size: var(--sm);
-      margin-right: 12px;
+      margin-right: 25px;
     }
     .navbar-shopping-cart {
       position: relative;
@@ -84,9 +70,6 @@
       color: var(--white);
     }
     @media (max-width: 640px) {
-      .menu {
-        display: block;
-      }
       .navbar-left ul {
         display: none;
       }
@@ -98,9 +81,13 @@
       }
        .product-search-form-input{
         height: 40px !important;
+        width: 100% !important;
       } 
       .product-search-form{
         padding: 0 15px;
+      }
+      .logo{
+        display: none;
       }
     }
 
@@ -113,7 +100,7 @@
     /* Menu icon */
 
     
-    .cartsy-menu-toggler {
+    .menu-toggler {
             cursor: pointer;
             display: flex;
             flex-direction: column;
@@ -121,20 +108,20 @@
          
         }
 
-        .cartsy-menu-toggler>span:first-child {
+        .menu-toggler>span:first-child {
             width: 13px;
         }
 
-        .cartsy-menu-toggler>span:nth-child(2) {
+        .menu-toggler>span:nth-child(2) {
             width: 26px;
         }
 
-        .cartsy-menu-toggler>span:nth-child(3) {
+        .menu-toggler>span:nth-child(3) {
             width: 18px;
         }
 
 
-       .cartsy-menu-toggler>span {
+       .menu-toggler>span {
             background-color: #212121;
             border-radius: 3px;
             display: block;
@@ -186,7 +173,7 @@
 
         .product-search-form-input {
             border: 1px solid #212121;
-            width: 100%;
+            width: 960px;
             height: 50px;
             border-width: 2px;
             border-radius: 6px;
@@ -202,38 +189,17 @@
 </head>
 <body>
   <nav>
-    <div class="cartsy-menu-toggler">
+    <div class="menu-toggler">
         <span></span>
         <span></span>
         <span></span>
     </div>
 
-<!-- 
+ 
 
-    <div class="navbar-left">
-    <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
-
-      <ul>
-        <li>
-          <a href="/">All</a>
-        </li>
-        <li>
-          <a href="/">Clothes</a>
-        </li>
-        <li>
-          <a href="/">Electronics</a>
-        </li>
-        <li>
-          <a href="/">Furnitures</a>
-        </li>
-        <li>
-          <a href="/">Toys</a>
-        </li>
-        <li>
-          <a href="/">Others</a>
-        </li>
-      </ul>
-    </div> -->
+    <!-- <div class="navbar-left">
+    <img src="../img/barberry-logo.svg" alt="logo" class="logo">
+    </div>  -->
 
     <div class="search-form">
 
