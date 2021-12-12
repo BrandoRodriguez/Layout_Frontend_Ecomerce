@@ -1,0 +1,255 @@
+/* <!-- ======================================= 
+==CSS General==  
+=======================================--> */
+body::-webkit-scrollbar{
+  width: 10px;
+  background: #313131;
+}
+body::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255, .2);
+  border-radius: 10px;
+  border-right: 3px solid #313131;
+}
+address,
+blockquote,
+body,
+button,
+code,
+dd,
+dl,
+dt,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+html,
+input,
+legend,
+li,
+ol,
+p,
+pre,
+table,
+td,
+textarea,
+th,
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+img, video {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+} 
+/* <!-- ======================================= 
+==CSS End General==  
+=======================================--> */
+
+/* <!-- ======================================= 
+==CSS Initial==  
+=======================================--> */
+body{
+  font-family: 'Quicksand', sans-serif;
+  background: var(--background-color);
+}
+:root {
+  --color-primary: #212121;
+  --hover-Color: #3A3A3A;
+  --background-color: rgba(255,255,255,1);
+  --colorTextLight: #5a5a5a;
+  --color-Primary-Hover: #3a3a3a;
+  --white: #FFFFFF;
+  --black: #000000;
+  --sm: 13px;
+  --md: 16px;
+  --lg: 18px;
+} 
+/* <!-- ======================================= 
+==CSS End Initial==  
+=======================================--> */
+
+/* <!-- ======================================= 
+==CSS Card==  
+=======================================--> */
+.card {
+  position: relative;
+  background-color: #fff;
+  /* border-radius: 6px; */
+  /* border: 2px solid transparent; */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: .25s ease-in-out;
+}
+.card a:active,
+.card a:focus {
+  border: 0;
+  outline: none
+}    
+.card:hover {
+  /* border-color: var(--colorPrimary); */
+  transform: translateY(-5px);
+}
+.card-description {
+  padding: 7px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.card-price {
+  font-weight: 600;
+}
+.card-category {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.card-category,
+.card-category:visited {
+  color: var(--colorTextLight)
+}
+.card-category:hover {
+  color: var(--color-primary)
+} 
+.card-title {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.card-title,
+.card-title:visited {
+  color: var(--colorTextLight)
+}
+.card-title:hover {
+  color: var(--color-primary)
+} 
+.card-thumb {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.badge {
+  background-color:var(--color-primary);
+  top: 3px;
+  color: var(--white);
+  font-size: 10px;
+  left: 3px;
+  line-height: 1;
+  padding: 4px 8px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+.card-counter {
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  z-index: 2;   
+}
+.card-counter-update { 
+  align-items: center;
+  background-color: var(--color-primary);
+  border-radius: 6px 0 2px 0;
+  cursor: pointer;
+  display: flex; 
+  height: 30px;
+  width: 30px;
+  justify-content: center;
+}
+.card-counter-update:hover {
+  background-color: var(--color-Primary-Hover);
+}
+/* <!-- ======================================= 
+==CSS Responsibe==  
+=======================================--> */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 2px;
+  place-content: center;
+  margin: 15px;
+}
+@media (min-width: 768px) {
+  .cards-container {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .cards-container {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin: 100px;
+  }
+  .card-description{
+    padding: 7px 0px 0px;
+  }
+  .badge {
+      font-size: 12px;
+      left: 3px;
+      padding: 5px 10px;
+  }
+  .card-counter-update { 
+      height: 35px;
+      width: 35px;
+  }
+}
+@media (min-width: 1280px) {
+  .cards-container {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1400px) {
+  .cards-container {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1700px) {
+  .cards-container {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+/* <!-- ======================================= 
+==CSS End Responsibe==  
+=======================================--> */
+
+
+
+   /* Card badge */
+   /* .product-badge {
+       background-color: var(--colorSecondary, #212121);
+       border-radius: 6px;
+       color: #fff;
+       font-size: 12px;
+       left: 20px;
+       line-height: 1;
+       padding: 5px 10px;
+       pointer-events: none;
+       position: absolute;
+       top: 20px;
+       z-index: 1;
+   } */
+
+
+  
+
+
+
+
